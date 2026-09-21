@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" href="img/icon.png" type="image/png">
+    <title>Catalog</title>
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo"><img src="img/logo-light.png" alt="Coffee House" class="logo_img_light"></a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html#fav_coffee">Favourite Coffee</a></li>
+                <li><a href="home.html#about">About</a></li>
+                <li><a href="home.html#mobile_app">Mobile App</a></li>
+                <li><a href="#contacts">Contact Us</a></li>
+            </ul>
+        </nav>
+        <button type="button" id="theme_switch" aria-label="switch colour theme"></button>
+        <button type="button" class="burger" aria-label="open menu"><span></span><span></span><span></span></button>
+    </header>
+    <main>
+        <section class="catalog_clogon">
+            <h1>Behind each of our cups hides an amazing surprise</h1>
+            <h2>Everything to satisfy Everyone!</h2>
+        </section>
+        <div class="categories">
+            <button type="button" class="categories_btn is-active" data-filter="coffee">Coffee</button>
+            <button type="button" class="categories_btn" data-filter="tea">Tea</button>
+            <button type="button" class="categories_btn" data-filter="desserts">Desserts</button>
+        </div>
+
+        <div class="goods-list">
+            <article class="goods" data-category="coffee" id="iris_coffee">
+                <img src="img/coffee-1.jpg" alt="Iris coffee image">
+                <h3 class="goods_name">Iris Coffee</h3>
+                <p class="goods_description">Fragnant black coffee with Jameson Irish whiskey and whipped milk</p>
+                <p class="price">$7.00</p>
+            </article>
+            <article class="goods" data-category="coffee" id="kahlua_coffee">
+                <img src="img/coffee-2.jpg" alt="Kahlua coffee image">
+                <h3 class="goods_name">Kahlua Coffee</h3>
+                <p class="goods_description">Classic coffee with milkand Kahlua liqueur under a cup of frothed milk</p>
+                <p class="price">$7.00</p>
+            </article>
+            <article class="goods" data-category="coffee" id="honey_raf">
+                <img src="img/coffee-3.jpg" alt="Honey raf image">
+                <h3 class="goods_name">Honey Raf</h3>
+                <p class="goods_description">Espresso with frothed milk, cream and aromatic honey</p>
+                <p class="price">$5.50</p>
+            </article>
+            <article class="goods" data-category="coffee" id="ice_cappuccino">
+                <img src="img/coffee-4.jpg" alt="Ice cappuccino image">
+                <h3 class="goods_name">Ice cappuccino</h3>
+                <p class="goods_description">Cappuccino with soft thick foam in summer version with ice</p>
+                <p class="price">$5.00</p>
+            </article>
+            <article class="goods" data-category="coffee" id="espresso">
+                <img src="img/coffee-5.jpg" alt="Espresso image">
+                <h3 class="goods_name">Espresso</h3>
+                <p class="goods_description">Classic black coffee</p>
+                <p class="price">$4.50</p>
+            </article>
+            <article class="goods" data-category="coffee" id="latte">
+                <img src="img/coffee-6.jpg" alt="Latte image">
+                <h3 class="goods_name">Latte</h3>
+                <p class="goods_description">Espresso coffee with the addition of steamed milk and dense milk foam</p>
+                <p class="price">$5.50</p>
+            </article>
+            <article class="goods" data-category="coffee" id="latte_macchiato">
+                <img src="img/coffee-7.jpg" alt="Latte macchiato image">
+                <h3 class="goods_name">Latte macchiato</h3>
+                <p class="goods_description">Espresso with frothed milk and chocolate</p>
+                <p class="price">$5.50</p>
+            </article>
+            <article class="goods" data-category="coffee" id="coffee_with_cognac">
+                <img src="img/coffee-8.jpg" alt="Coffee with cognac image">
+                <h3 class="goods_name">Coffee with cognac</h3>
+                <p class="goods_description">Fragrant black coffee with cognac and whipped cream</p>
+                <p class="price">$6.50</p>
+            </article>
+
+            <article class="goods" data-category="tea" id="moroccan_tea">
+                <img src="img/tea-1.jpg" alt="Moroccan tea image">
+                <h3 class="goods_name">Moroccan</h3>
+                <p class="goods_description">Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint</p>
+                <p class="price">$4.50</p>
+            </article>
+            <article class="goods" data-category="tea" id="ginger_tea">
+                <img src="img/tea-2.jpg" alt="Ginger tea image">
+                <h3 class="goods_name">Ginger</h3>
+                <p class="goods_description">Original black tea with fresh ginger, lemon and honey</p>
+                <p class="price">$5.00</p>
+            </article>
+            <article class="goods" data-category="tea" id="cranberry_tea">
+                <img src="img/tea-3.jpg" alt="Cranberry tea image">
+                <h3 class="goods_name">Cranberry</h3>
+                <p class="goods_description">Invigorating black tea with cranberry and honey</p>
+                <p class="price">$5.00</p>
+            </article>
+            <article class="goods" data-category="tea" id="sea_buckthorn_tea">
+                <img src="img/tea-4.jpg" alt="Sea buckthorn image">
+                <h3 class="goods_name">Sea buckthorn</h3>
+                <p class="goods_description">Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon</p>
+                <p class="price">$5.50</p>
+            </article>
+
+            <article class="goods" data-category="desserts" id="marble_cheesecake_desserts">
+                <img src="img/dessert-1.jpg" alt="Marble cheesecake image">
+                <h3 class="goods_name">Marble cheesecake</h3>
+                <p class="goods_description">Philadelphia cheese with lemon zest on a light sponge cake and red currant jam</p>
+                <p class="price">$3.50</p>
+            </article>
+            <article class="goods" data-category="desserts" id="red_velvet_desserts">
+                <img src="img/dessert-2.jpg" alt="Red velvet image">
+                <h3 class="goods_name">Red velvet</h3>
+                <p class="goods_description">Layer cake with cream cheese frosting</p>
+                <p class="price">$4.00</p>
+            </article>
+            <article class="goods" data-category="desserts" id="cheesecakes_desserts">
+                <img src="img/dessert-3.jpg" alt="Cheesecakes image">
+                <h3 class="goods_name">Cheesecakes</h3>
+                <p class="goods_description">Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar</p>
+                <p class="price">$4.50</p>
+            </article>
+        </div>
+
+        <button type="button" class="goods_more">Show more</button>
+    </main>
+    <footer  id="contacts">
+        <div class="footer_slogan">
+            <h2>Sip, Savor, Smile.</h2>
+            <p class="accent">It's coffee time!</p>
+        </div>
+        <div class="footer_info">
+            <p>Contact Us!</p>
+            <ul>
+                <li><a href="https://maps.app.goo.gl/Tp4dLMR5ghd8A7qy6" >8558 Green Rd., LA</a></li>
+                <li><a href="tel:+160377772">+1 (603) 777-72</a></li>
+                <li><a href="https://rs.school/" target="_blank">Follow for fresh news</a></li>
+                <li><a href="https://www.instagram.com/rsschool_news" target="_blank">Us on Instagram</a></li>
+                <li>Mon-Sat: 9:00 - 23:00</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
