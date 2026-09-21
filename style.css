@@ -40,32 +40,32 @@ html {
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  transition:
-    background-color var(--transition),
-    color var(--transition);
-  overflow-x: hidden;
+    margin: 0;
+    min-width: 320px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+    overflow-x: hidden;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
-  font: inherit;
+   font: inherit;
 }
 
 a, button, .goods, .categories_btn {
@@ -186,7 +186,6 @@ body.dark-theme #theme_switch::after {
 #theme_switch:hover,
 #theme_switch:focus-visible {
     border-color: var(--accent);
-    /* box-shadow: 0 0 0 4px rgba(185, 154, 131, .12); */
 }
 
 .burger {
@@ -210,20 +209,20 @@ body.dark-theme #theme_switch::after {
 }
 
 .slogan {
-  position: relative;
-  min-height: 590px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 72px clamp(28px, 7vw, 100px);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  isolation: isolate;
-  background: url("img/home_background.png");
-  color: var(--inverse);
-  background-size: cover;        
-  background-position: center; 
-  background-repeat: no-repeat;
+    position: relative;
+    min-height: 590px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px clamp(28px, 7vw, 100px);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    isolation: isolate;
+    background: url("img/home_background.png");
+    color: var(--inverse);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
 
 }
 
@@ -398,8 +397,7 @@ body.dark-theme #theme_switch::after {
 }
 
 .categories_btn:hover,
-.categories_btn:focus-visible,
-.categories_btn.is-active {
+.categories_btn:focus-visible {
     background: var(--accent);
     border-color: var(--border-inverse);
 }
@@ -546,285 +544,285 @@ footer a:focus-visible {
 }
 
 @media (max-width: 1000px) {
-  nav ul {
-    gap: 18px;
-  }
+    nav ul {
+      gap: 18px;
+    }
 
-  .goods-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+    .goods-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-  .slogan {
-    min-height: 520px;
-  }
+    .slogan {
+      min-height: 520px;
+    }
 
-  #mobile_app {
-    grid-template-columns: 1fr;
-  }
+    #mobile_app {
+      grid-template-columns: 1fr;
+    }
 
-  #mobile_app img {
-    max-width: 420px;
-    margin-inline: auto;
-  }
+    #mobile_app img {
+      max-width: 420px;
+      margin-inline: auto;
+    }
 }
 
 @media (max-width: 768px) {
-  header,
-  main,
-  footer {
-    width: min(100% - 28px, var(--content));
-  }
+    header,
+    main,
+    footer {
+      width: min(100% - 28px, var(--content));
+    }
 
-  header {
-    min-height: 72px;
-    gap: 12px;
-  }
+    header {
+      min-height: 72px;
+      gap: 12px;
+    }
 
-  nav {
-    display: none;
-  }
+    nav {
+      display: none;
+    }
 
-  #theme_switch {
-    margin-left: auto;
-  }
+    #theme_switch {
+      margin-left: auto;
+    }
 
-  .burger {
-    display: block;
-  }
+    .burger {
+      display: block;
+    }
 
-  main {
-    padding-bottom: 52px;
-  }
+    main {
+      padding-bottom: 52px;
+    }
 
-  .slogan {
-    min-height: 500px;
-    padding: 56px 34px;
-  }
+    .slogan {
+      min-height: 500px;
+      padding: 56px 34px;
+    }
 
-  .slogan h1 {
-    font-size: clamp(40px, 8vw, 60px);
-  }
+    .slogan h1 {
+      font-size: clamp(40px, 8vw, 60px);
+    }
 
-  #fav_coffee,
-  #about,
-  #mobile_app {
-    padding-top: 68px;
-  }
+    #fav_coffee,
+    #about,
+    #mobile_app {
+      padding-top: 68px;
+    }
 
-  .carousel_track {
-    min-height: 480px;
-    padding-inline: 55px;
-  }
+    .carousel_track {
+      min-height: 480px;
+      padding-inline: 55px;
+    }
 
-  .carousel_slide {
-    flex-basis: min(420px, 78vw);
-  }
+    .carousel_slide {
+      flex-basis: min(420px, 78vw);
+    }
 
-  .carousel_controls {
-    inset-inline: 0;
-  }
+    .carousel_controls {
+      inset-inline: 0;
+    }
 
-  #about img {
-    height: 330px;
-  }
+    #about img {
+      height: 330px;
+    }
 
-  body:has(.goods-list) main > h1 {
-    margin-top: 10px;
-  }
+    body:has(.goods-list) main > h1 {
+      margin-top: 10px;
+    }
 
-  .goods-list {
-    gap: 16px;
-  }
+    .goods-list {
+      gap: 16px;
+    }
 
-  footer {
-    padding: 52px 30px;
-  }
+    footer {
+      padding: 52px 30px;
+    }
 }
 
 @media (max-width: 560px) {
-  header,
-  main,
-  footer {
-    width: min(100% - 20px, var(--content));
-  }
+    header,
+    main,
+    footer {
+      width: min(100% - 20px, var(--content));
+    }
 
-  .logo img {
-    width: 62px;
-  }
+    .logo img {
+      width: 62px;
+    }
 
-  #theme_switch {
-    flex-basis: 52px;
-    width: 52px;
-  }
+    #theme_switch {
+      flex-basis: 52px;
+      width: 52px;
+    }
 
-  body.dark-theme #theme_switch::before {
-    transform: translateX(20px);
-  }
+    body.dark-theme #theme_switch::before {
+      transform: translateX(20px);
+    }
 
-  .slogan {
-    min-height: 520px;
-    padding: 44px 24px;
-    border-radius: 22px;
-    background-position: 58% center;
-  }
+    .slogan {
+      min-height: 520px;
+      padding: 44px 24px;
+      border-radius: 22px;
+      background-position: 58% center;
+    }
 
-  .slogan h1 {
-    font-size: clamp(36px, 11vw, 50px);
-  }
+    .slogan h1 {
+      font-size: clamp(36px, 11vw, 50px);
+    }
 
-  .slogan p {
-    font-size: 14px;
-  }
+    .slogan p {
+      font-size: 14px;
+    }
 
-  #fav_coffee h2,
-  #about h2,
-  #mobile_app h2 {
-    font-size: 36px;
-  }
+    #fav_coffee h2,
+    #about h2,
+    #mobile_app h2 {
+      font-size: 36px;
+    }
 
-  .carousel_track {
-    min-height: 450px;
-    padding-inline: 30px;
-  }
+    .carousel_track {
+      min-height: 450px;
+      padding-inline: 30px;
+    }
 
-  .carousel_slide {
-    flex-basis: 100%;
-  }
+    .carousel_slide {
+      flex-basis: 100%;
+    }
 
-  .carousel_slide img {
-    width: min(290px, 72vw);
-    height: 290px;
-  }
+    .carousel_slide img {
+      width: min(290px, 72vw);
+      height: 290px;
+    }
 
-  .carousel_controls button {
-    width: 44px;
-    height: 44px;
-  }
+    .carousel_controls button {
+      width: 44px;
+      height: 44px;
+    }
 
-  #about > p {
-    font-size: 31px;
-  }
+    #about > p {
+      font-size: 31px;
+    }
 
-  #about img {
-    width: 100%;
-    height: 300px;
-  }
+    #about img {
+      width: 100%;
+      height: 300px;
+    }
 
-  #about img + img {
-    margin-top: 16px;
-    margin-left: 0;
-  }
+    #about img + img {
+      margin-top: 16px;
+      margin-left: 0;
+    }
 
-  #mobile_app p {
-    font-size: 16px;
-  }
+    #mobile_app p {
+      font-size: 16px;
+    }
 
-  .goods-list {
-    grid-template-columns: 1fr;
-  }
+    .goods-list {
+      grid-template-columns: 1fr;
+    }
 
-  .goods img {
-    aspect-ratio: 4 / 3;
-  }
+    .goods img {
+      aspect-ratio: 4 / 3;
+    }
 
-  body:has(.goods-list) main > h1 {
-    font-size: 38px;
-  }
+    body:has(.goods-list) main > h1 {
+      font-size: 38px;
+    }
 
-  footer {
-    padding: 42px 24px;
-    border-radius: 22px;
-  }
+    footer {
+      padding: 42px 24px;
+      border-radius: 22px;
+    }
 }
 
 @media (max-width: 380px) {
-  header,
-  main,
-  footer {
-    width: calc(100% - 16px);
-  }
+    header,
+    main,
+    footer {
+      width: calc(100% - 16px);
+    }
 
-  header {
-    padding-top: 12px;
-  }
+    header {
+      padding-top: 12px;
+    }
 
-  .logo img {
-    width: 58px;
-  }
+    .logo img {
+      width: 58px;
+    }
 
-  #theme_switch {
-    transform: scale(.92);
-    transform-origin: right center;
-  }
+    #theme_switch {
+      transform: scale(.92);
+      transform-origin: right center;
+    }
 
-  .burger {
-    width: 38px;
-    height: 38px;
-  }
+    .burger {
+      width: 38px;
+      height: 38px;
+    }
 
-  .slogan {
-    min-height: 500px;
-    padding: 34px 20px;
-  }
+    .slogan {
+      min-height: 500px;
+      padding: 34px 20px;
+    }
 
-  .slogan h1 {
-    font-size: 34px;
-  }
+    .slogan h1 {
+      font-size: 34px;
+    }
 
-  .slogan p {
-    font-size: 13px;
-  }
+    .slogan p {
+      font-size: 13px;
+    }
 
-  #fav_coffee,
-  #about,
-  #mobile_app {
-    padding-top: 54px;
-  }
+    #fav_coffee,
+    #about,
+    #mobile_app {
+      padding-top: 54px;
+    }
 
-  #fav_coffee h2,
-  #about h2,
-  #mobile_app h2 {
-    font-size: 32px;
-  }
+    #fav_coffee h2,
+    #about h2,
+    #mobile_app h2 {
+      font-size: 32px;
+    }
 
-  .carousel_track {
-    min-height: 430px;
-    padding-inline: 26px;
-  }
+    .carousel_track {
+      min-height: 430px;
+      padding-inline: 26px;
+    }
 
-  .carousel_slide img {
-    height: 255px;
-  }
+    .carousel_slide img {
+      height: 255px;
+    }
 
-  .carousel_slide h3 {
-    font-size: 19px;
-  }
+    .carousel_slide h3 {
+      font-size: 19px;
+    }
 
-  .carousel_controls {
-    top: 54%;
-  }
+    .carousel_controls {
+      top: 54%;
+    }
 
-  .categories {
-    gap: 7px;
-  }
+    .categories {
+      gap: 7px;
+    }
 
-  .categories_btn {
-    padding-inline: 14px;
-    font-size: 14px;
-  }
+    .categories_btn {
+      padding-inline: 14px;
+      font-size: 14px;
+    }
 
-  .goods_name,
-  .goods_description,
-  .goods .price {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
+    .goods_name,
+    .goods_description,
+    .goods .price {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
 
-  footer h2 {
-    font-size: 34px;
-  }
+    footer h2 {
+      font-size: 34px;
+    }
 
-  footer p.accent {
-    font-size: 30px;
-  }
+    footer p.accent {
+      font-size: 30px;
+    }
 }
