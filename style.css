@@ -23,16 +23,20 @@ body.dark-theme {
     --accent: #B0907A;
     --light-text: #a49d97;
 
-   --bg: #3d342d;
-   --container: #403F3D;
-   --overlay: rgb(41, 40, 38, 0.8);
+    --bg: #3d342d;
+    --container: #403F3D;
+    --overlay: rgb(41, 40, 38, 0.8);
 
-   --border-primary: #665F55;
-   --border-inverse: #C1B6AD;
+    --border-primary: #665F55;
+    --border-inverse: #C1B6AD;
 }
 
 * {
     box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 html {
@@ -48,9 +52,14 @@ body {
     font-size: 16px;
     line-height: 1.5;
     transition:
-      background-color var(--transition),
-      color var(--transition);
+        background-color var(--transition),
+        color var(--transition);
     overflow-x: hidden;
+}
+
+body.menu-open,
+body.modal-open {
+    overflow: hidden;
 }
 
 img {
@@ -65,10 +74,13 @@ a {
 }
 
 button {
-   font: inherit;
+    font: inherit;
 }
 
-a, button, .goods, .categories_btn {
+a,
+button,
+.goods,
+.categories_btn {
     transition:
         color var(--transition),
         background-color var(--transition),
@@ -86,11 +98,15 @@ footer {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
     min-height: var(--header-height);
     display: flex;
     align-items: center;
     gap: 28px;
     padding: 16px 0;
+    background: var(--bg);
 }
 
 main {
@@ -154,7 +170,7 @@ nav a {
     display: grid;
     place-items: center;
     border-radius: 50%;
-    color:  #E1D4C9;
+    color: #E1D4C9;
     background: var(--accent);
     font-size: 14px;
     line-height: 1;
@@ -221,9 +237,8 @@ body.dark-theme #theme_switch::after {
     background: url("img/home_background.png");
     color: var(--inverse);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     background-repeat: no-repeat;
-
 }
 
 .slogan h1 {
@@ -265,15 +280,16 @@ body.dark-theme #theme_switch::after {
     min-height: 530px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 28px;
+    justify-content: flex-start;
+    gap: 0;
     overflow: hidden;
-    padding: 30px 80px 0;
+    padding: 30px 0 0;
+    transition: transform 450ms ease;
 }
 
 .carousel_slide {
-    flex: 0 0 min(430px, 70vw);
     text-align: center;
+    padding-inline: 40px;
 }
 
 .carousel_slide img {
@@ -284,19 +300,19 @@ body.dark-theme #theme_switch::after {
 }
 
 .carousel_slide h3 {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
     font-size: 22px;
 }
 
 .carousel_slide p {
     max-width: 440px;
-    margin: 0 auto 10px;
+    margin: 0 auto 6px;
     color: var(--light-text);
     font-size: 14px;
 }
 
 .carousel_slide .price {
-    margin: 0;
+    margin: 0 auto;
     font-size: 18px;
     font-weight: 700;
 }
@@ -334,6 +350,7 @@ body.dark-theme #theme_switch::after {
     text-align: left;
     font-size: clamp(36px, 4vw, 60px);
 }
+
 #about h2 .accent {
     color: var(--accent);
 }
@@ -402,6 +419,12 @@ body.dark-theme #theme_switch::after {
     border-color: var(--border-inverse);
 }
 
+.categories_btn.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+
 .goods-list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -414,6 +437,7 @@ body.dark-theme #theme_switch::after {
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-xl);
     background: var(--bg);
+    cursor: pointer;
 }
 
 .goods:hover {
@@ -430,8 +454,8 @@ body.dark-theme #theme_switch::after {
 .goods_name,
 .goods_description,
 .goods .price {
-  margin-left: 18px;
-  margin-right: 18px;
+    margin-left: 18px;
+    margin-right: 18px;
 }
 
 .goods_name {
@@ -481,7 +505,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-
     margin-bottom: 20px;
     padding: 68px clamp(28px, 7vw, 70px);
     border-radius: var(--radius-xl);
@@ -535,6 +558,194 @@ footer a:focus-visible {
     text-underline-offset: 4px;
 }
 
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: var(--overlay);
+    z-index: 100;
+}
+
+.modal.is-open {
+    display: grid;
+}
+
+.modal_window {
+    position: relative;
+    width: min(100%, 800px);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0;
+    border-radius: var(--radius-xl);
+    background: var(--container);
+    color: var(--inverse);
+}
+
+.modal_image {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    align-self: stretch;
+}
+
+.modal_info {
+    padding: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_name {
+    margin: 0 0 12px;
+    padding-top: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--inverse);
+}
+
+.modal_description {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--inverse);
+    opacity: .85;
+}
+
+.modal_group {
+    margin-bottom: 20px;
+}
+
+.modal_group_title {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--inverse);
+    opacity: .85;
+}
+
+.modal_options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modal_option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px 6px 6px;
+    border: 1px solid var(--border-inverse);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--inverse);
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+.modal_option_marker {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--border-inverse);
+    color: var(--container);
+    font-size: 13px;
+    font-weight: 600;
+    flex: 0 0 auto;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.modal_option:hover,
+.modal_option:focus-visible {
+    border-color: var(--accent);
+}
+
+.modal_option.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+
+.modal_option.is-active .modal_option_marker {
+    background: var(--bg);
+    color: var(--accent);
+}
+
+.modal_total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 4px 0 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--inverse);
+}
+
+.modal_total_price {
+    font-size: 24px;
+    color: var(--inverse);
+}
+
+.modal_note {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 20px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--inverse);
+    opacity: .8;
+}
+
+.modal_note_icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.modal_close {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 12px 20px;
+    border: 1px solid var(--border-inverse);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--inverse);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+.modal_close:hover,
+.modal_close:focus-visible {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+
 @media (min-width: 1441px) {
     header,
     main,
@@ -545,97 +756,166 @@ footer a:focus-visible {
 
 @media (max-width: 1000px) {
     nav ul {
-      gap: 18px;
+        gap: 18px;
     }
 
     .goods-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .slogan {
-      min-height: 520px;
+        min-height: 520px;
     }
 
     #mobile_app {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 
     #mobile_app img {
-      max-width: 420px;
-      margin-inline: auto;
+        max-width: 420px;
+        margin-inline: auto;
     }
 }
 
 @media (max-width: 768px) {
+    :root {
+        --header-height: 72px;
+    }
+
     header,
     main,
     footer {
-      width: min(100% - 28px, var(--content));
+        width: min(100% - 28px, var(--content));
     }
 
     header {
-      min-height: 72px;
-      gap: 12px;
+        min-height: var(--header-height);
+        gap: 12px;
     }
 
     nav {
-      display: none;
+        display: none;
     }
 
     #theme_switch {
-      margin-left: auto;
+        margin-left: auto;
     }
 
     .burger {
-      display: block;
+        display: block;
     }
 
     main {
-      padding-bottom: 52px;
+        padding-bottom: 52px;
     }
 
     .slogan {
-      min-height: 500px;
-      padding: 56px 34px;
+        min-height: 500px;
+        padding: 56px 34px;
     }
 
     .slogan h1 {
-      font-size: clamp(40px, 8vw, 60px);
+        font-size: clamp(40px, 8vw, 60px);
     }
 
     #fav_coffee,
     #about,
     #mobile_app {
-      padding-top: 68px;
+        padding-top: 68px;
     }
 
     .carousel_track {
-      min-height: 480px;
-      padding-inline: 55px;
-    }
-
-    .carousel_slide {
-      flex-basis: min(420px, 78vw);
+        min-height: 480px;
+        padding-inline: 0;
     }
 
     .carousel_controls {
-      inset-inline: 0;
+        inset-inline: 0;
     }
 
     #about img {
-      height: 330px;
+        height: 330px;
     }
 
     body:has(.goods-list) main > h1 {
-      margin-top: 10px;
+        margin-top: 10px;
     }
 
     .goods-list {
-      gap: 16px;
+        gap: 16px;
     }
 
     footer {
-      padding: 52px 30px;
+        padding: 52px 30px;
+    }
+
+    .modal_window {
+        grid-template-columns: 1fr;
+    }
+
+    .modal_image {
+        min-height: 240px;
+        max-height: 260px;
+    }
+
+    .modal_info {
+        padding: 0 20px 20px;
+    }
+
+    .burger span {
+        transition: transform var(--transition), opacity var(--transition);
+    }
+
+    body.menu-open nav {
+        display: block;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 30px;
+        background: var(--bg);
+        overflow-y: auto;
+        z-index: 20;
+        animation: menu-fade 250ms ease;
+        transition: transform 0.2s;
+    }
+
+    body.menu-open nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    body.menu-open nav a {
+        font-size: 20px;
+    }
+
+    body.menu-open .burger span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    body.menu-open .burger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.menu-open .burger span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    @keyframes menu-fade {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 
@@ -643,95 +923,91 @@ footer a:focus-visible {
     header,
     main,
     footer {
-      width: min(100% - 20px, var(--content));
+        width: min(100% - 20px, var(--content));
     }
 
     .logo img {
-      width: 62px;
+        width: 62px;
     }
 
     #theme_switch {
-      flex-basis: 52px;
-      width: 52px;
+        flex-basis: 52px;
+        width: 52px;
     }
 
     body.dark-theme #theme_switch::before {
-      transform: translateX(20px);
+        transform: translateX(20px);
     }
 
     .slogan {
-      min-height: 520px;
-      padding: 44px 24px;
-      border-radius: 22px;
-      background-position: 58% center;
+        min-height: 520px;
+        padding: 44px 24px;
+        border-radius: 22px;
+        background-position: 58% center;
     }
 
     .slogan h1 {
-      font-size: clamp(36px, 11vw, 50px);
+        font-size: clamp(36px, 11vw, 50px);
     }
 
     .slogan p {
-      font-size: 14px;
+        font-size: 14px;
     }
 
     #fav_coffee h2,
     #about h2,
     #mobile_app h2 {
-      font-size: 36px;
+        font-size: 36px;
     }
 
     .carousel_track {
-      min-height: 450px;
-      padding-inline: 30px;
-    }
-
-    .carousel_slide {
-      flex-basis: 100%;
+        min-height: 450px;
+        padding-inline: 0;
     }
 
     .carousel_slide img {
-      width: min(290px, 72vw);
-      height: 290px;
+        width: min(290px, 72vw);
+        height: 290px;
     }
 
     .carousel_controls button {
-      width: 44px;
-      height: 44px;
+        width: 44px;
+        height: 44px;
     }
 
     #about > p {
-      font-size: 31px;
+        font-size: 31px;
     }
 
     #about img {
-      width: 100%;
-      height: 300px;
+        width: 100%;
+        height: 300px;
     }
 
     #about img + img {
-      margin-top: 16px;
-      margin-left: 0;
+        margin-top: 16px;
+        margin-left: 0;
     }
 
     #mobile_app p {
-      font-size: 16px;
+        font-size: 16px;
     }
 
     .goods-list {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 
     .goods img {
-      aspect-ratio: 4 / 3;
+        aspect-ratio: 4 / 3;
     }
 
     body:has(.goods-list) main > h1 {
-      font-size: 38px;
+        font-size: 38px;
     }
 
     footer {
-      padding: 42px 24px;
-      border-radius: 22px;
+        padding: 42px 24px;
+        border-radius: 22px;
     }
 }
 
@@ -739,90 +1015,90 @@ footer a:focus-visible {
     header,
     main,
     footer {
-      width: calc(100% - 16px);
+        width: calc(100% - 16px);
     }
 
     header {
-      padding-top: 12px;
+        padding-top: 12px;
     }
 
     .logo img {
-      width: 58px;
+        width: 58px;
     }
 
     #theme_switch {
-      transform: scale(.92);
-      transform-origin: right center;
+        transform: scale(.92);
+        transform-origin: right center;
     }
 
     .burger {
-      width: 38px;
-      height: 38px;
+        width: 38px;
+        height: 38px;
     }
 
     .slogan {
-      min-height: 500px;
-      padding: 34px 20px;
+        min-height: 500px;
+        padding: 34px 20px;
     }
 
     .slogan h1 {
-      font-size: 34px;
+        font-size: 34px;
     }
 
     .slogan p {
-      font-size: 13px;
+        font-size: 13px;
     }
 
     #fav_coffee,
     #about,
     #mobile_app {
-      padding-top: 54px;
+        padding-top: 54px;
     }
 
     #fav_coffee h2,
     #about h2,
     #mobile_app h2 {
-      font-size: 32px;
+        font-size: 32px;
     }
 
     .carousel_track {
-      min-height: 430px;
-      padding-inline: 26px;
+        min-height: 430px;
+        padding-inline: 0;
     }
 
     .carousel_slide img {
-      height: 255px;
+        height: 255px;
     }
 
     .carousel_slide h3 {
-      font-size: 19px;
+        font-size: 19px;
     }
 
     .carousel_controls {
-      top: 54%;
+        top: 54%;
     }
 
     .categories {
-      gap: 7px;
+        gap: 7px;
     }
 
     .categories_btn {
-      padding-inline: 14px;
-      font-size: 14px;
+        padding-inline: 14px;
+        font-size: 14px;
     }
 
     .goods_name,
     .goods_description,
     .goods .price {
-      margin-left: 16px;
-      margin-right: 16px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 
     footer h2 {
-      font-size: 34px;
+        font-size: 34px;
     }
 
     footer p.accent {
-      font-size: 30px;
+        font-size: 30px;
     }
 }
